@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="F_ChillerValveEnable" Id="{eacb95fa-49ef-4c8d-8057-f0d541675cea}" SpecialFunc="None">
+    <Declaration><![CDATA[// Interlock logic for the Dump Chiller
+FUNCTION F_ChillerValveEnable : BOOL
+VAR_INPUT
+END_VAR
+VAR_IN_OUT CONSTANT
+	stErrors : ST_ErrorStates; // Currently detected errors
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF stErrors.bHardwareFailure OR stErrors.bLeakDetected THEN
+	F_ChillerValveEnable := FALSE;
+ELSE
+	F_ChillerValveEnable := TRUE;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

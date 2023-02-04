@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <GVL Name="GVL_IO" Id="{c8b20b5e-d11e-4d29-9934-9abc78f03f88}">
+    <Declaration><![CDATA[// PLC IO from terminal modules
+{attribute 'qualified_only'}
+VAR_GLOBAL
+	(* Slot1 EL2212 -- Cooling Valve Outputs *)
+    {attribute 'pytmc' := '
+                pv: @(PREFIX):VALVE:01
+                io: i
+                field: ZNAM "CLOSED"
+                field: ONAM "OPEN"
+    '}
+    {attribute 'TcLinkTo' :=    'TIIB[FTL_PLC_E02_EL2212]^DOX Control Channel 1^Control^Output'}
+	bChillerValve01 AT %Q* : BOOL; // Ch1
+    {attribute 'pytmc' := '
+                pv: @(PREFIX):VALVE:02
+                io: i
+                field: ZNAM "CLOSED"
+                field: ONAM "OPEN"
+    '}
+    {attribute 'TcLinkTo' :=    'TIIB[FTL_PLC_E02_EL2212]^DOX Control Channel 2^Control^Output'}
+    bChillerValve02 AT %Q* : BOOL; // Ch2
+    
+	(* Slot2 EL1004 -- Leak Detector Inputs *)
+    {attribute 'pytmc' := '
+                pv: @(PREFIX):DETECTOR:01
+                io: i
+                field: ZNAM "OK"
+                field: ONAM "LEAK"
+    '}
+    {attribute 'TcLinkTo' :=    'TIIB[FTL_PLC_E03_EL1004]^Channel 1^Input'}
+    bLeakRelay01 AT %I* : BOOL; // Ch1
+    {attribute 'pytmc' := '
+                pv: @(PREFIX):DETECTOR:02
+                io: i
+                field: ZNAM "OK"
+                field: ONAM "LEAK"
+    '}
+    {attribute 'TcLinkTo' :=    'TIIB[FTL_PLC_E03_EL1004]^Channel 2^Input'}
+    bLeakRelay02 AT %I* : BOOL; // Ch2
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

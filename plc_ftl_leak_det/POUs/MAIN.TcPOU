@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+  <POU Name="MAIN" Id="{002ad0c3-72fa-47bb-80c4-f9448f2d52a7}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	stErrors : ST_ErrorStates; // Triggered error states
+	fbErrorTriggers : FB_ErrorTriggers; // Brand new errors this cycl
+    
+    {attribute 'pytmc' := 'pv: @(PREFIX):LEAK_MONITOR'}
+    fbLeakMonitor : FB_LeakMonitor; //Leak detection
+    {attribute 'pytmc' := '
+            pv: @(PREFIX):VALVE:RESET
+            io: o
+    '}
+    bValveLatchReset : BOOL; //Manual latch for valves
+    
+    (*
+    {attribute 'pytmc' := 'pv: @(PREFIX):FTL:PLC'}
+	fbDiag : FB_EcatDiag; // Ethercat diagnostic
+    *)
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+(* Check PLC hardware for failures *)
+fbDiag(AMSNetId := GVL_PLC.AMSNetId);
+stErrors.bHardwareFailure := fbDiag.bError;
+*)
+
+(* Monitor for leaks on cooling loop*)
+fbLeakMonitor(
+    bLeakRelay01 := GVL_IO.bLeakRelay01,
+    bLeakRelay02 := GVL_IO.bLeakRelay02,
+    bError => stErrors.bLeakDetected
+);
+
+(* Open NC chiller loop valves if interlock logic passes *)
+GVL_IO.bChillerValve01 := F_ChillerValveEnable(stErrors := stErrors);
+GVL_IO.bChillerValve02 := F_ChillerValveEnable(stErrors := stErrors);
+
+(* Check for rising-edge errors *)
+fbErrorTriggers(stErrors := stErrors);
+
+(* Check for new leak errors *)
+IF fbErrorTriggers.NewLeakError() THEN
+    bValveLatchReset := FALSE; //If there is a new error turn off the valve reset
+ELSIF bValveLatchReset THEN
+	// If there are no new errors and reset is enabled, reset the errors
+	fbLeakMonitor.Reset();
+	fbErrorTriggers.ResetLeakTriggers();
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
