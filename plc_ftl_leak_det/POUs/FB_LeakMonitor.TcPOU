@@ -22,7 +22,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* Set error flag if leak is detected on either sensor*)
-IF (bLeakRelay01 = FALSE OR bLeakRelay02 = FALSE) THEN
+IF (NOT bLeakRelay01 OR NOT bLeakRelay02) THEN
     bError := TRUE;
 END_IF]]></ST>
     </Implementation>
