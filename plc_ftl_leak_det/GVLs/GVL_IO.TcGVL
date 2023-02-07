@@ -4,7 +4,7 @@
     <Declaration><![CDATA[// PLC IO from terminal modules
 {attribute 'qualified_only'}
 VAR_GLOBAL
-	(* Slot1 EL2212 -- Cooling Valve Outputs *)
+    (* Slot1 EL2212 -- Cooling Valve Outputs *)
     {attribute 'pytmc' := '
                 pv: @(PREFIX):VALVE:01
                 io: i
@@ -12,7 +12,7 @@ VAR_GLOBAL
                 field: ONAM "OPEN"
     '}
     {attribute 'TcLinkTo' :=    'TIIB[FTL_PLC_E02_EL2212]^DOX Control Channel 1^Control^Output'}
-	bChillerValve01 AT %Q* : BOOL; // Ch1
+    bChillerValve01 AT %Q* : BOOL; // Ch1
     {attribute 'pytmc' := '
                 pv: @(PREFIX):VALVE:02
                 io: i
@@ -21,8 +21,8 @@ VAR_GLOBAL
     '}
     {attribute 'TcLinkTo' :=    'TIIB[FTL_PLC_E02_EL2212]^DOX Control Channel 2^Control^Output'}
     bChillerValve02 AT %Q* : BOOL; // Ch2
-    
-	(* Slot2 EL1004 -- Leak Detector Inputs *)
+
+    (* Slot2 EL1004 -- Leak Detector Inputs *)
     {attribute 'pytmc' := '
                 pv: @(PREFIX):DETECTOR:01
                 io: i
