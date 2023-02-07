@@ -21,7 +21,7 @@ VAR_GLOBAL
     '}
     {attribute 'TcLinkTo' :=    'TIIB[FTL_PLC_E02_EL2212]^DOX Control Channel 2^Control^Output'}
     bChillerValve02 AT %Q* : BOOL; // Ch2
-    
+
     (* Slot2 EL1004 -- Leak Detector Inputs *)
     {attribute 'pytmc' := '
                 pv: @(PREFIX):DETECTOR:01

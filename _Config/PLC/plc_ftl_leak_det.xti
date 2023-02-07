@@ -27,6 +27,10 @@
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
+					<Name>GVL_PLC.AMSNetId</Name>
+					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+				</Var>
+				<Var>
 					<Name>GVL_IO.bLeakRelay01</Name>
 					<Comment>
 						<![CDATA[ Ch1]]>
@@ -39,10 +43,6 @@
 						<![CDATA[ Ch2]]>
 					</Comment>
 					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_PLC.AMSNetId</Name>
-					<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="2">

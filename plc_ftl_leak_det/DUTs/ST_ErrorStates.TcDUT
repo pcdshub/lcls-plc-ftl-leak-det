@@ -9,7 +9,7 @@ STRUCT
 
     // Hardware Failure
     bHardwareFailure : BOOL; // A hardware component has failed
-    
+
 END_STRUCT
 END_TYPE
 ]]></Declaration>

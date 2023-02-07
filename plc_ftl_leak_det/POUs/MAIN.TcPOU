@@ -4,8 +4,8 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
     stErrors : ST_ErrorStates; // Triggered error states
-    fbErrorTriggers : FB_ErrorTriggers; // Brand new errors this cycl
-    
+    fbErrorTriggers : FB_ErrorTriggers; // Brand new errors this cycle
+
     {attribute 'pytmc' := 'pv: @(PREFIX):LEAK_MONITOR'}
     fbLeakMonitor : FB_LeakMonitor; //Leak detection
     {attribute 'pytmc' := '
@@ -13,7 +13,7 @@ VAR
             io: o
     '}
     bValveLatchReset : BOOL; //Manual latch for valves
-    
+
     (*
     {attribute 'pytmc' := 'pv: @(PREFIX):FTL:PLC'}
     fbDiag : FB_EcatDiag; // Ethercat diagnostic
