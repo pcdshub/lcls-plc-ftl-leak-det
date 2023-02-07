@@ -4,7 +4,7 @@
     <Declaration><![CDATA[// Detect leaks and leak locations
 FUNCTION_BLOCK FB_LeakMonitor
 VAR_INPUT
-	bLeakRelay01 : BOOL; // Whether a leak was detected on sensor 1
+    bLeakRelay01 : BOOL; // Whether a leak was detected on sensor 1
     bLeakRelay02 : BOOL; // Whether a leak was detected on sensor 2
 END_VAR
 VAR_OUTPUT
@@ -17,7 +17,7 @@ VAR_OUTPUT
             field: ZNAM OK
             field: ONAM LEAK
     '}
-	bError: BOOL := FALSE; //Error flag 
+    bError: BOOL := FALSE; //Error flag 
 END_VAR
 ]]></Declaration>
     <Implementation>

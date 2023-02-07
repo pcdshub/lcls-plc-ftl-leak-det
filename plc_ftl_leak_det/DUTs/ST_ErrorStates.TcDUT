@@ -4,12 +4,12 @@
     <Declaration><![CDATA[// Error states that can occur in the program
 TYPE ST_ErrorStates :
 STRUCT
-	// Leak Alarms
-	bLeakDetected : BOOL; // Leak detected on one of the sensors
+    // Leak Alarms
+    bLeakDetected : BOOL; // Leak detected on one of the sensors
+
+    // Hardware Failure
+    bHardwareFailure : BOOL; // A hardware component has failed
     
-	// Hardware Failure
-	bHardwareFailure : BOOL; // A hardware component has failed
-	
 END_STRUCT
 END_TYPE
 ]]></Declaration>
