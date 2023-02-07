@@ -4,20 +4,20 @@
     <Declaration><![CDATA[// Detects rising-edge errors
 FUNCTION_BLOCK FB_ErrorTriggers
 VAR_IN_OUT CONSTANT
-	stErrors : ST_ErrorStates; // Errors that have been detected
+    stErrors : ST_ErrorStates; // Errors that have been detected
 END_VAR
 VAR_OUTPUT
-	stNewErrors : ST_ErrorStates; // Rising-edge errors
+    stNewErrors : ST_ErrorStates; // Rising-edge errors
 END_VAR
 VAR
-	// R_TRIG function blocks for detecting new errors
-	fbLeakTrig : R_TRIG;
+    // R_TRIG function blocks for detecting new errors
+    fbLeakTrig : R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[fbLeakTrig(
-	CLK := stErrors.bLeakDetected,
-	Q => stNewErrors.bLeakDetected
+    CLK := stErrors.bLeakDetected,
+    Q => stNewErrors.bLeakDetected
 );]]></ST>
     </Implementation>
     <Method Name="NewLeakError" Id="{ab5031be-34d4-41d7-8f1c-1e6706b02485}">
@@ -38,8 +38,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[fbLeakTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bLeakDetected
+    CLK := FALSE,
+    Q => stNewErrors.bLeakDetected
 );
 
 ]]></ST>

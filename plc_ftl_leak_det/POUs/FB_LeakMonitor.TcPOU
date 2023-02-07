@@ -4,11 +4,11 @@
     <Declaration><![CDATA[// Detect leaks and leak locations
 FUNCTION_BLOCK FB_LeakMonitor
 VAR_INPUT
-	bLeakRelay01 : BOOL; // Whether a leak was detected on sensor 1
+    bLeakRelay01 : BOOL; // Whether a leak was detected on sensor 1
     bLeakRelay02 : BOOL; // Whether a leak was detected on sensor 2
 END_VAR
 VAR_OUTPUT
-    
+
     {attribute 'pytmc' := '
             pv: LEAK_FOUND
             io: i
@@ -17,12 +17,12 @@ VAR_OUTPUT
             field: ZNAM OK
             field: ONAM LEAK
     '}
-	bError: BOOL := FALSE; //Error flag 
+    bError: BOOL := FALSE; //Error flag
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* Set error flag if leak is detected on either sensor*)
-IF (bLeakRelay01 = FALSE OR bLeakRelay02 = FALSE) THEN
+IF (NOT bLeakRelay01 OR NOT bLeakRelay02) THEN
     bError := TRUE;
 END_IF]]></ST>
     </Implementation>
