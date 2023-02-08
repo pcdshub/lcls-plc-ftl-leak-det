@@ -3,9 +3,9 @@
   <POU Name="MAIN" Id="{002ad0c3-72fa-47bb-80c4-f9448f2d52a7}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-	stErrors : ST_ErrorStates; // Triggered error states
-	fbErrorTriggers : FB_ErrorTriggers; // Brand new errors this cycl
-    
+    stErrors : ST_ErrorStates; // Triggered error states
+    fbErrorTriggers : FB_ErrorTriggers; // Brand new errors this cycl
+
     {attribute 'pytmc' := 'pv: @(PREFIX):LEAK_MONITOR'}
     fbLeakMonitor : FB_LeakMonitor; //Leak detection
     {attribute 'pytmc' := '
@@ -13,10 +13,10 @@ VAR
             io: o
     '}
     bValveLatchReset : BOOL; //Manual latch for valves
-    
+
     (*
     {attribute 'pytmc' := 'pv: @(PREFIX):FTL:PLC'}
-	fbDiag : FB_EcatDiag; // Ethercat diagnostic
+    fbDiag : FB_EcatDiag; // Ethercat diagnostic
     *)
 END_VAR]]></Declaration>
     <Implementation>
@@ -44,9 +44,9 @@ fbErrorTriggers(stErrors := stErrors);
 IF fbErrorTriggers.NewLeakError() THEN
     bValveLatchReset := FALSE; //If there is a new error turn off the valve reset
 ELSIF bValveLatchReset THEN
-	// If there are no new errors and reset is enabled, reset the errors
-	fbLeakMonitor.Reset();
-	fbErrorTriggers.ResetLeakTriggers();
+    // If there are no new errors and reset is enabled, reset the errors
+    fbLeakMonitor.Reset();
+    fbErrorTriggers.ResetLeakTriggers();
 END_IF]]></ST>
     </Implementation>
   </POU>
