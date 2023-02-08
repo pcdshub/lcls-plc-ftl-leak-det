@@ -15,6 +15,11 @@
     <Implicit_KindOfTask>{9911492d-b847-4069-8111-9a224b5db167}</Implicit_KindOfTask>
     <Implicit_Jitter_Distribution>{578a12f5-dc2b-4e3e-b75e-eda708ae7e4e}</Implicit_Jitter_Distribution>
     <LibraryReferences>{083801e5-18c8-483c-acae-c7274cadd8e2}</LibraryReferences>
+    <CombineIds>false</CombineIds>
+    <Company>SLAC</Company>
+    <Released>true</Released>
+    <Title>plc-ftl-leak-det</Title>
+    <ProjectVersion>0.0.0</ProjectVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DUTs\E_DeviceState.TcDUT">
