@@ -1,29 +1,3 @@
-record(bi, "$(PREFIX):DETECTOR:01_RBV") {
-  field(DESC, "GVL_IO.bLeakRelay01")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bLeakRelay01?")
-  field(ZNAM, "OK")
-  field(ONAM, "LEAK")
-  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
-  info(archive, "VAL")
-}
-
-record(bi, "$(PREFIX):DETECTOR:02_RBV") {
-  field(DESC, "GVL_IO.bLeakRelay02")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bLeakRelay02?")
-  field(ZNAM, "OK")
-  field(ONAM, "LEAK")
-  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
-  info(archive, "VAL")
-}
-
 record(bi, "$(PREFIX):VALVE:01_RBV") {
   field(DESC, "GVL_IO.bChillerValve01")
   field(SCAN, "I/O Intr")
@@ -50,15 +24,26 @@ record(bi, "$(PREFIX):VALVE:02_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "$(PREFIX):LEAK_MONITOR:LEAK_FOUND_RBV") {
-  field(DESC, "MAIN.fbLeakMonitor.bError")
+record(bi, "$(PREFIX):DETECTOR:01_RBV") {
+  field(DESC, "GVL_IO.bLeakRelay01")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
   field(TSE, "-2")
   field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbLeakMonitor.bError?")
-  field(ZSV, "NO_ALARM")
-  field(OSV, "MAJOR")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bLeakRelay01?")
+  field(ZNAM, "OK")
+  field(ONAM, "LEAK")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "$(PREFIX):DETECTOR:02_RBV") {
+  field(DESC, "GVL_IO.bLeakRelay02")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bLeakRelay02?")
   field(ZNAM, "OK")
   field(ONAM, "LEAK")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
@@ -86,5 +71,20 @@ record(bo, "$(PREFIX):VALVE:RESET") {
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "$(PREFIX):LEAK_MONITOR:LEAK_FOUND_RBV") {
+  field(DESC, "MAIN.fbLeakMonitor.bError")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbLeakMonitor.bError?")
+  field(ZSV, "NO_ALARM")
+  field(OSV, "MAJOR")
+  field(ZNAM, "OK")
+  field(ONAM, "LEAK")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
 }
