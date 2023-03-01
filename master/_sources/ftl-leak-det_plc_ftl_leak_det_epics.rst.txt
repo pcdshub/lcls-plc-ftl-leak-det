@@ -1,0 +1,94 @@
+
+Data Types
+----------
+
+
+   
+FB_LeakMonitor
+^^^^^^^^^^^^^^
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):LEAK_FOUND_RBV
+      - bi
+      - $(SYMBOL).bError
+      - | field: ONAM LEAK
+        | field: OSV MAJOR
+        | field: ZNAM OK
+        | field: ZSV NO_ALARM
+        | io: input
+
+
+          
+Database Records
+----------------
+
+.. list-table::
+    :header-rows: 1
+    :align: center
+
+    * - Record
+      - Type
+      - Description
+      - Pragma
+    * - $(PREFIX):VALVE:01_RBV
+      - bi
+      - GVL_IO.bChillerValve01
+      - | field: ONAM "OPEN"
+        | field: ZNAM "CLOSED"
+        | io: input
+
+
+    * - $(PREFIX):VALVE:02_RBV
+      - bi
+      - GVL_IO.bChillerValve02
+      - | field: ONAM "OPEN"
+        | field: ZNAM "CLOSED"
+        | io: input
+
+
+    * - $(PREFIX):DETECTOR:01_RBV
+      - bi
+      - GVL_IO.bLeakRelay01
+      - | field: ONAM "LEAK"
+        | field: ZNAM "OK"
+        | io: input
+
+
+    * - $(PREFIX):DETECTOR:02_RBV
+      - bi
+      - GVL_IO.bLeakRelay02
+      - | field: ONAM "LEAK"
+        | field: ZNAM "OK"
+        | io: input
+
+
+    * - $(PREFIX):VALVE:RESET_RBV
+      - bi
+      - MAIN.bValveLatchReset
+      - | io: output
+
+
+    * - $(PREFIX):VALVE:RESET
+      - bo
+      - MAIN.bValveLatchReset
+      - | io: output
+
+
+    * - $(PREFIX):LEAK_MONITOR:LEAK_FOUND_RBV
+      - bi
+      - MAIN.fbLeakMonitor.bError
+      - | field: ONAM LEAK
+        | field: OSV MAJOR
+        | field: ZNAM OK
+        | field: ZSV NO_ALARM
+        | io: input
+
+
+

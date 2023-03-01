@@ -1,0 +1,12 @@
+
+Links
+-----
+
+.. csv-table::
+    :header: Owner A, Item A, Owner B, Item B
+    :align: center
+
+        plc_ftl_leak_det Instance, PlcTask Inputs^GVL_IO.bLeakRelay01, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^FTL_PLC_E03_EL1004, Channel 1^Input
+        plc_ftl_leak_det Instance, PlcTask Inputs^GVL_IO.bLeakRelay02, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^FTL_PLC_E03_EL1004, Channel 2^Input
+        plc_ftl_leak_det Instance, PlcTask Outputs^GVL_IO.bChillerValve01, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^FTL_PLC_E02_EL2212, DOX Control Channel 1^Control^Output
+        plc_ftl_leak_det Instance, PlcTask Outputs^GVL_IO.bChillerValve02, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^FTL_PLC_E02_EL2212, DOX Control Channel 2^Control^Output

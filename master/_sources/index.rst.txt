@@ -1,0 +1,30 @@
+lcls-plc-ftl-leak-det
+---------------------
+
+.. toctree::
+    :maxdepth: 2
+    :caption: ftl-leak-det
+
+    ftl-leak-det_pragmas
+    ftl-leak-det_nc
+    ftl-leak-det_ethercat
+    ftl-leak-det_boxes
+    ftl-leak-det_links
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: plc_ftl_leak_det
+
+    ftl-leak-det_plc_ftl_leak_det_summary
+    ftl-leak-det_plc_ftl_leak_det_epics
+    ftl-leak-det_plc_ftl_leak_det_source
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
